@@ -6,6 +6,7 @@ This documentaton is OpenGL 3.3 focused and all examples should work there. If t
 
 - [Shaders and Shader Programs](shaders.md)
 - [VAOs and VBOs](vaos-and-vbos.md)
+- [Instance rendering](instance-rendering.md)
 - [Matrices](matrices.md)
 - [Miscellaneous](miscellaneous.md)
 - [Errors](errors.md)
