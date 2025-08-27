@@ -1,0 +1,24 @@
+# VAOs and VBOs
+
+During mesh setup:
+
+- Create the VAO
+- Bind the VAO
+- Create and populate VBOs (position, texture coordinates, normals, indices, etc.)
+- Unbind the VAO
+
+During mesh rendering:
+
+- Bind the VAO
+- All VBOs will be remembered
+- Call OpenGL
+- Unbind the VAO
+
+## Instance
+
+Typically meshes use instances for performance. This means a mesh might have an array of positions, rotations, and scales for each instance.
+
+A mesh might have a buffer for 100 instances but only be using 20. It can repalce the buffer with a larger one if needed, at a small cost to performance.
+
+Rendering is almost identical to the above. The only difference is we call `GL33.glDrawElementsInstanced` and tell it how many instances we want to render. It will loop over the data for each instance in sequence.
+
