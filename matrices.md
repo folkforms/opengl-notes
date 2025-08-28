@@ -19,9 +19,9 @@ A "frustum" is a pyramix with the top cut off.
 
 For 3D games, we use a projection matrix which is a frustum. This is simple enough to calculate.
 
-    public static void setProjectionMatrix() {
-      float aspectRatio = (float) windowWidth / (float) windowHeight;
-      projectionMatrix.setPerspective(FOV, aspectRatio, Z_NEAR, Z_FAR);
+    public static void setProjectionMatrix(float windowWidth, float windowHeight, float fov) {
+      float aspectRatio = windowWidth / windowHeight;
+      projectionMatrix.setPerspective(fov, aspectRatio, Z_NEAR, Z_FAR);
     }
 
 We use the FOV, the window's aspect ratio, and arbitrary Z_NEAR and Z_FAR coordinates. These might be 0.01f and 1000f, respectively. Anything with a z-value > Z_FAR is too far away to bother rendering, and anything with a z-value < 0.01f is inside or behind the camera.

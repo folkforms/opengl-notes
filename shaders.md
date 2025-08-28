@@ -6,16 +6,16 @@ A shader is one of GL_VERTEX_SHADER, GL_FRAGMENT_SHADER or GL_GEOMETRY_SHADER
 
 OpenGL 3.3:
 
-- A vertex shader's sole responsibility is to set gl_Position to a clip space position.
-- A fragment shader's sole responsibility is to set gl_FragColor to a color.
+- A vertex shader's sole responsibility is to set `gl_Position` to a clip space position.
+- A fragment shader's sole responsibility is to set `gl_FragColor` to a colour.
 - A geometry shader's sole responsibility is to take primitives (points, lines, triangles) as input and generate zero or more new primitives as output.
 
 OpenGL 4.5 adds GL_TESS_CONTROL_SHADER, GL_TESS_EVALUATION_SHADER and GL_COMPUTE_SHADER.
 
-- Tessellation control shader: A tessellation control shader's sole responsibility is to determine how finely you want to subdivide a patch (could be a quad, triangle, or line) into smaller pieces.
+- A tessellation control shader's sole responsibility is to determine how finely you want to subdivide a patch (could be a quad, triangle, or line) into smaller pieces.
     - The tessellation control shader sets these subdivision levels (called tessellation levels) based on factors like distance from camera, surface curvature, or desired detail level. Higher tessellation levels create smoother surfaces but cost more performance.
-- Tessellation evaluation shader: A tessellation evaluation shader's sole responsibility is to compute vertex positions from tessellation coordinates and patch data.
-- Compute shader: A compute shader's sole responsibility is to perform arbitrary computations on data without rendering geometry.
+- A tessellation evaluation shader's sole responsibility is to compute vertex positions from tessellation coordinates and patch data.
+- A compute shader's sole responsibility is to perform arbitrary computations on data without rendering geometry.
 
 During setup, you create your shaders and attach them to a Shader Program.
 
