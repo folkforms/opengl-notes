@@ -19,14 +19,15 @@ A "frustum" is a pyramix with the top cut off.
 
 For 3D games, we use a projection matrix which is a frustum. This is simple enough to calculate.
 
-    public static Matrix4f updateProjectionMatrix() {
+    public static void setProjectionMatrix() {
       float aspectRatio = (float) windowWidth / (float) windowHeight;
-      return projectionMatrix.setPerspective(FOV, aspectRatio, Z_NEAR, Z_FAR);
+      projectionMatrix.setPerspective(FOV, aspectRatio, Z_NEAR, Z_FAR);
     }
 
-Note: `setPerspective` documentation says "Set this matrix to be a symmetric perspective projection frustum transformation for a right-handed coordinate systemusing OpenGL's NDC z range of [-1..+1]." So it's using a well-known calculation.
-
 We use the FOV, the window's aspect ratio, and arbitrary Z_NEAR and Z_FAR coordinates. These might be 0.01f and 1000f, respectively. Anything with a z-value > Z_FAR is too far away to bother rendering, and anything with a z-value < 0.01f is inside or behind the camera.
+
+- Note: `setPerspective` documentation says "Set this matrix to be a symmetric perspective projection frustum transformation for a right-handed coordinate systemusing OpenGL's NDC z range of [-1..+1]." So it's using a well-known calculation.
+- We need to update `projectionMatrix` any time the FOV or window size changes.
 
 ### How is it used?
 
@@ -40,7 +41,7 @@ We then multiply this value by the projection matrix to get the final vertex pos
 
 `vertex * model instance pos/rot/scale * camera view * projection matrix`
 
-This gives us the final position in clip space (which is -1 to +1 coordinate space for x,y,z.) The GPU then automatically converts clip space into screen pixels.
+This gives us the final vertex position in clip space (which is -1 to +1 coordinate space for x,y,z.) The GPU then automatically converts clip space into screen pixels.
 
 ## Projection matrix in 2D games
 
@@ -49,14 +50,14 @@ This gives us the final position in clip space (which is -1 to +1 coordinate spa
 In 2D games we use an orthographic projection.
 
     // left/right/bottom/top are 0/windowWidth/0/windowHeight
-    public final Matrix4f getOrtho2DProjectionMatrix(float left, float right, float bottom, float top) {
-      return ortho2DMatrix.setOrtho2D(left, right, bottom, top);
+    public final void setOrtho2DProjectionMatrix(float left, float right, float bottom, float top) {
+      ortho2DMatrix.setOrtho2D(left, right, bottom, top);
     }
 
-- "ortho2DMatrix" is a blank object and we give it values.
 - Note: `setOrtho2D` documentation says "Set this matrix to be an orthographic projection transformation for a right-handed coordinate system." Again, it's using a well-known calculation.
+- We need to update `ortho2DMatrix` any time the window size changes.
 
 ### How is it used?
 
-The exact same equation as above is used: `vertex * model instance pos/rot/scale * camera view * projection matrix`. The only difference is the projection matrix has different contents.
+The same equation as above is used: `vertex * model instance pos/rot/scale * camera view * projection matrix`. The only difference is the projection matrix has a different value.
 
