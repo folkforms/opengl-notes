@@ -50,3 +50,36 @@ glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 ```
 
 Note that mipmap options can only be used for the `GL_TEXTURE_MIN_FILTER`. It does not make sense to use mipmap options for `GL_TEXTURE_MAG_FILTER` since mipmaps are only about downsized textures and those are expanded textures. Doing so will generate an `GL_INVALID_ENUM` error.
+
+## Textures in the vertex shader
+
+You put the texture coordinates for each vertex into a VBO that gets sent to the vertex shader. Think of it like stretching a canvas over a frame. The coordinates are the points you want to pin, and the rasterisation will figure out the rest.
+
+That said, in the vertex shader we just pass the coordinates along to the fragment shader.
+
+```
+layout (location = 1) in vec2 texCoords;
+
+out vec2 fragTexCoords;
+
+void main() {
+  fragTexCoords = texCoords;
+  ...
+}
+```
+
+## Textures in the fragment shader
+
+OpenGL has a built-in data type for textures called a "sampler". You can use `sampler1D`, `sampler2D` or `sampler3D`.
+
+In the fragment shader we have a uniform that uses the sampler to access whatever texture(s) are currently bound.
+
+The `texture` method takes the texture data and the texture coords and calculates the pixel colour:
+
+```
+in vec2 fragTexCoords;
+uniform sampler2D textureData;
+out vec4 finalColour;
+
+finalColour = texture(textureData, fragTexCoords);
+```
