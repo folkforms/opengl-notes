@@ -8,5 +8,7 @@ This documentaton is OpenGL 3.3 focused and all examples should work there. If t
 - [VAOs and VBOs](vaos-and-vbos.md)
 - [Instance rendering](instance-rendering.md)
 - [Matrices](matrices.md)
+- [Textures](textures.md)
 - [Miscellaneous](miscellaneous.md)
 - [Errors](errors.md)
+- [Debugging](debugging.md)
