@@ -14,7 +14,9 @@ The debug logging is only available in OpenGL 4.3, so you have to force it when 
 ```
   public static void setUpDebugMode() {
     GL43.glEnable(GL43.GL_DEBUG_OUTPUT);
-    GL43.glEnable(GL43.GL_DEBUG_OUTPUT_SYNCHRONOUS);
+    if (variables.getAsBoolean("game1.graphics.syncDebugMode")) {
+      GL43.glEnable(GL43.GL_DEBUG_OUTPUT_SYNCHRONOUS);
+    }
     GL43.glDebugMessageControl(GL43.GL_DONT_CARE, GL43.GL_DONT_CARE,
         GL43.GL_DEBUG_SEVERITY_NOTIFICATION, (IntBuffer) null, false);
     GL43.glDebugMessageCallback((source, type, id, severity, length, message, userParam) -> {
@@ -30,3 +32,5 @@ The debug logging is only available in OpenGL 4.3, so you have to force it when 
 ```
 
 `GL_DEBUG_OUTPUT_SYNCHRONOUS` means "log the error immediately". This means we can put a breakpoint in the above method and see where the error occurred!
+
+FIXME I think adding `Thread.dumpStackTrace()` will work as well?
