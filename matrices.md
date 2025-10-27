@@ -1,5 +1,70 @@
 # Matrices
 
+## The basics of matrices
+
+Matrices are useful because we can represent various types of transformations:
+
+Scaling:
+
+```
+| S1  0   0   0 |   | x |   | S1 . x |
+| 0   S2  0   0 | . | y | = | S2 . y |
+| 0   0   S3  0 |   | z |   | S3 . z |
+| 0   0   0   1 |   | 1 |   |    1   |
+```
+
+Translating:
+
+```
+| 1  0  0  Tx |   | x |   | x + Tx |
+| 0  1  0  Ty | . | y | = | y + Ty |
+| 0  0  1  Tz |   | z |   | z + Tz |
+| 0  0  0  1  |   | 1 |   |    1   |
+```
+
+Rotation about the X-axis:
+
+```
+| 1  0     0      0 |   | x |   |          x          |
+| 0  cosT  -sinT  0 | . | y | = | cosT . y - sinT . z |
+| 0  sinT  cosT   0 |   | z |   | sinT . y + cosT . z |
+| 0  0     0      1 |   | 1 |   |          1          |
+```
+
+Rotation about the Y-axis:
+
+```
+| cosT   0  sinT  0 |   | x |   |  cosT . x + sinT . z |
+| 0      1  0     0 | . | y | = |           y          |
+| -sinT  0  cosT  0 |   | z |   | -sinT . x + cosT . z |
+| 0      0  0     1 |   | 1 |   |           1          |
+```
+
+Rotation about the Z-axis:
+
+```
+| cosT  -sinT  0  0 |   | x |   | cosT . x - sinT . y |
+| sinT  cosT   0  0 |   | z |   | sinT . x + cosT . y |
+| 0     0      1  0 | . | y | = |          y          |
+| 0     0      0  1 |   | 1 |   |          1          |
+```
+
+For a given scene with thousands of points, we first combine all three transformations into a **model matrix**.
+
+Then we multiply the model matrix by a **view matrix** (camera) and a **projection matrix** (for 3D or 2D.)
+
+Finally, we apply this **ModelViewProjection** matrix to all points in the mesh.
+
+### Gimbal lock
+
+When you rotate into certain positions, you can experience a scenario known as "gimbal lock". For example, if you rotate an object directly downwards (Y-axis), then rotation about the X and Z axis will do the same thing. You can free yourself from gimbal lock by undoing the Y-axis rotation. But the main issue is that when tracking an object, the camera rotation becomes unpredictable as the object flies though one of these "zones". The camera might execute a series of wild turns in order to keep tracking an object as it flies overhead.
+
+The solution is to add a fourth dimension to the rotation, i.e. to use a quaternion for rotation.
+
+FIXME Add a chapter on quaternions
+
+## Matrices as objects
+
 There are several types of matrix used:
 
 - Camera view matrix: Represents the camera's point of view
