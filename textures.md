@@ -83,3 +83,15 @@ out vec4 finalColour;
 
 finalColour = texture(textureData, fragTexCoords);
 ```
+
+## Vertices and texture coordinates
+
+The simplest cube has 8 vertices and 36 indices. This is because 6 faces * 2 triangles * 3 vertices = 36. This rendering is as efficient as possible by providing the minimum data.
+
+But this doesn't work for a textured cube. Imagine vertex 0 is at 0,0,1 and is the bottom-left corner of the front face. So it might have texture coordinate 0,1 (texture coordinates have 0,0 in the top-left.)
+
+But vertex 0 is also the bottom-right corner of the left face. Thus it needs texture coordinate 1,1, but it can't have both!
+
+How do we reconcile this problem? We repeat the vertices. We create a cube with 24 vertices and 36 indexes. 24 vertices = 6 faces * 4 vertices. The original 8 vertices will be repeated several times. It's less efficient but it gives us control of how each face is textured.
+
+This way we can have the left face use vertices 8,9,10,11 (which are actually copies of vertices 0,1,4,5) and give then different texture coordinates.
