@@ -61,7 +61,23 @@ When you rotate into certain positions, you can experience a scenario known as "
 
 The solution is to add a fourth dimension to the rotation, i.e. to use a quaternion for rotation.
 
-FIXME Add a chapter on quaternions
+## Quaternions
+
+Quaternions use four numbers to represent a number in 3D space. They are specifying the axis to rotate around (x,y,z), and how much to rotate (w). Hence you need four numbers.
+
+It's performing the same rotation around the X/Y/Z axis, but because it uses four dimensions it does not suffer from gimbal lock.
+
+This code should work (untested):
+
+```
+void rotate(xDeg, yDeg, zDeg) {
+  Quaternion qX = new Quaternion().fromAxisAngleDeg(new Vector3f(1, 0, 0), xDeg);
+  Quaternion qY = new Quaternion().fromAxisAngleDeg(new Vector3f(0, 1, 0), yDeg);
+  Quaternion qZ = new Quaternion().fromAxisAngleDeg(new Vector3f(0, 0, 1), zDeg);
+  Quaternion deltaRotation = qZ.mul(qY).mul(qX);
+  storedRotation.mul(deltaRotation); // Modifies the quaternion in place
+}
+```
 
 ## Matrices as objects
 
