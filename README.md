@@ -9,6 +9,8 @@ This documentaton is OpenGL 3.3 focused and all examples should work there. If t
 - [Instance rendering](instance-rendering.md)
 - [Matrices](matrices.md)
 - [Textures](textures.md)
-- [Miscellaneous](miscellaneous.md)
+- [Quaternions](quaternions.md)
+- [Lighting](lighting.md)
 - [Errors](errors.md)
 - [Debugging](debugging.md)
+

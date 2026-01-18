@@ -1,0 +1,50 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.9">
+  <diagram name="Page-1" id="XXzftkj_sVAv1luw3QKz">
+    <mxGraphModel dx="1213" dy="623" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="kIgOXD8Koh3bjXQbnEYT-2" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;endFill=1;fillColor=#f8cecc;strokeColor=#b85450;" value="I">
+          <mxGeometry height="50" relative="1" width="50" y="14" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="40" y="40" as="sourcePoint" />
+            <mxPoint x="160" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kIgOXD8Koh3bjXQbnEYT-3" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;endFill=1;fillColor=#f8cecc;strokeColor=#b85450;" value="R">
+          <mxGeometry height="50" relative="1" width="50" y="14" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="160" y="160" as="sourcePoint" />
+            <mxPoint x="280" y="40" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kIgOXD8Koh3bjXQbnEYT-4" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;endFill=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="V">
+          <mxGeometry height="50" relative="1" width="50" x="0.027" y="-14" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="160" y="160" as="sourcePoint" />
+            <mxPoint x="300" y="60" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kIgOXD8Koh3bjXQbnEYT-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Cam" vertex="1">
+          <mxGeometry height="30" width="30" x="310" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kIgOXD8Koh3bjXQbnEYT-6" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="40" y="160" as="sourcePoint" />
+            <mxPoint x="300" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kIgOXD8Koh3bjXQbnEYT-7" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;endFill=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="N">
+          <mxGeometry height="50" relative="1" width="50" x="0.1667" y="10" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="160" y="160" as="sourcePoint" />
+            <mxPoint x="160" y="20" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kIgOXD8Koh3bjXQbnEYT-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Light" vertex="1">
+          <mxGeometry height="30" width="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

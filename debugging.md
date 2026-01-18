@@ -43,7 +43,7 @@ FIXME I think adding `Thread.dumpStackTrace()` will work as well?
 
 If an items z-index is outside the range of 0 to 1 it will be discarded by depth testing.
 
-This does not seem to apply to 3D rendering and I'm not sure why. But for 2D items they must have a z-index of 0 to 1 (in the old rendering pipeline this was 0 to 100,000 and normalised to be between 0 and 1.)
+This does not seem to apply to 3D rendering and I'm not sure why. But for 2D items they must have a z-index of 0 to 1 (in both old and new rendering pipelines this is 0 to 100,000 and normalised to be between 0 and 1.)
 
 2. Check for clashing z-indices
 
