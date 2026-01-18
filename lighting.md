@@ -47,13 +47,13 @@ Then... there are more variables! These represent properties of the material.
 
 Specular intensity controls how bright the highlight is, specular power controls how focused/sharp the highlight is. Think of it like a flashlight: intensity is how bright the bulb is, power is how narrow the beam is.
 
-M is the specular intensity of the material. 0-1. Wood would be be 0-0.3, silver would be 0.9-1, etc.
-P is the 'specular power' or the 'shininess factor'. Not sure how this differs from specular intensity.
+- M is the specular intensity of the material. 0-1. Wood would be be 0-0.3, silver would be 0.9-1, etc.
 
-- 1-10 = very broad, dull highlights (rough surfaces like clay or rubber)
-- 16-64 = moderate shininess (plastic, polished wood)
-- 64-128 = sharp highlights (polished metal, wet surfaces)
-- 128-256 = extremely sharp, tight highlights (mirrors, chrome)
+- P is the 'specular power' or the 'shininess factor'
+    - 1-10 = very broad, dull highlights (rough surfaces like clay or rubber)
+    - 16-64 = moderate shininess (plastic, polished wood)
+    - 64-128 = sharp highlights (polished metal, wet surfaces)
+    - 128-256 = extremely sharp, tight highlights (mirrors, chrome)
 
 ### Final equation
 
